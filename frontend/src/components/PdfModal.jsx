@@ -3,7 +3,7 @@ import { X, ExternalLink } from 'lucide-react'
 
 export function PdfModal({ metadados, isOpen, onClose }) {
   if (!metadados) return null
-  const pdfUrl = metadados.links?.pdf || metadados.prova_pdf
+  const pdfUrl = metadados.links?.pdf_cdn || metadados.prova_pdf
 
   return (
     <AnimatePresence>
