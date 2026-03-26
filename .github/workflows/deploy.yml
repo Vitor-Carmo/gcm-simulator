@@ -2,30 +2,35 @@ name: Deploy GCM Simulator
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
+
+permissions:
+  contents: write
 
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
-          python-version: '3.10'
+          python-version: "3.10"
 
       - name: Minify JSON Data
         run: |
+          # Garante que a pasta de destino existe
+          mkdir -p frontend/src/data
           # Script inline para garantir a minificação
           python3 -c "import json; db=json.load(open('gcm_data.json')); json.dump(db, open('frontend/src/data/gcm_data.min.json', 'w'), separators=(',', ':'), ensure_ascii=False)"
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18'
-          cache: 'npm'
+          node-version: "22" # Node 22 é o padrão estável em 2026
+          cache: "npm"
           cache-dependency-path: frontend/package-lock.json
 
       - name: Install and Build Frontend
@@ -37,5 +42,5 @@ jobs:
       - name: Deploy to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: frontend/dist # Pasta onde o Vite gera o build
+          folder: frontend/dist
           branch: gh-pages
