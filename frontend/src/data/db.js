@@ -9,28 +9,50 @@ db.version(2).stores({
   historico: '++id, sessao_id, prova_id, createdAt',
 })
 
-export async function importarDados(dados) {
-  const totalProvas = await db.provas.count()
-  if (totalProvas > 0) return
+export async function importarDados(dados, fingerprint) {
+  const LAST_FINGERPRINT_KEY = 'gcm_db_fingerprint'
+  const lastFingerprint = localStorage.getItem(LAST_FINGERPRINT_KEY)
+  
+  const totalNoDb = await db.provas.count()
 
-  await db.transaction('rw', db.provas, db.questoes, db.contextos, async () => {
-    for (const prova of dados) {
-      await db.provas.put({
-        id:    prova.id,
-        cargo: prova.metadata.cargo,
-        orgao: prova.metadata.orgao,
-        ano:   prova.metadata.ano,
-        banca: prova.metadata.banca,
-        links: prova.metadata.links,
-      })
-      for (const ctx of prova.contextos || []) {
-        await db.contextos.put({ ...ctx, prova_id: prova.id })
+  // CONDIÇÃO DE ATUALIZAÇÃO:
+  if (totalNoDb === 0 || lastFingerprint !== fingerprint) {
+    console.log("🔄 Dados novos detectados ou banco vazio. Sincronizando...")
+    
+    // Limpa tudo antes de colocar os dados novos (evita duplicatas e lixo)
+    await Promise.all([
+      db.provas.clear(),
+      db.questoes.clear(),
+      db.contextos.clear()
+    ])
+
+    await db.transaction('rw', db.provas, db.questoes, db.contextos, async () => {
+      for (const prova of dados) {
+        await db.provas.put({
+          id:    prova.id,
+          cargo: prova.metadata.cargo,
+          orgao: prova.metadata.orgao,
+          ano:   prova.metadata.ano,
+          banca: prova.metadata.banca,
+          links: prova.metadata.links,
+        })
+
+        if (prova.contextos) {
+          await db.contextos.bulkPut(prova.contextos.map(ctx => ({ ...ctx, prova_id: prova.id })))
+        }
+        
+        if (prova.questoes) {
+          await db.questoes.bulkPut(prova.questoes.map(q => ({ ...q, prova_id: prova.id, cat: q.cat || 'Geral' })))
+        }
       }
-      for (const q of prova.questoes || []) {
-        await db.questoes.put({ ...q, prova_id: prova.id, cat: q.cat || 'Geral' })
-      }
-    }
-  })
+    })
+
+    // Salva a nova assinatura para a próxima vez
+    localStorage.setItem(LAST_FINGERPRINT_KEY, fingerprint)
+    console.log("✅ Banco de dados sincronizado com sucesso!")
+  } else {
+    console.log("🟢 Banco de dados já está atualizado.")
+  }
 }
 
 export async function valoresUnicos(campo) {

@@ -16,8 +16,9 @@ export default function App() {
       try {
         // importa dados reais
         const resp = await fetch(`${import.meta.env.BASE_URL}gcm_data.min.json`)
+        const fingerprint = resp.headers.get('Content-Length') || 'v1'
         const dados = await resp.json()
-        await importarDados(dados)
+        await importarDados(dados, fingerprint)
 
         // carrega filtros disponíveis
         const [bancas, anos, materias, provasDb] = await Promise.all([
