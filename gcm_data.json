@@ -8,7 +8,8 @@
       "banca": "AVANÇA SP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/34628572/056621056507/guarda_civil.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/34628572/a01da974f072/gabarito_definitivo.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/34628572/a01da974f072/gabarito_definitivo.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/001_guarda_civil_pref_paratysp_2025_avança_sp.pdf"
       }
     },
     "contextos": [
@@ -526,7 +527,8 @@
       "banca": "Creative Group",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/32118440/30c0c864781a/guarda_civil.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/32118440/6a907391a151/gabarito_definitivo.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/32118440/6a907391a151/gabarito_definitivo.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/002_guarda_civil_pref_buritizalsp_2024_creative_group.pdf"
       }
     },
     "contextos": [
@@ -1114,7 +1116,8 @@
       "banca": "CONSESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/23405176/f9f3c87b77f6/guarda_civil.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/23405176/d381e9a80832/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/23405176/d381e9a80832/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/003_guarda_civil_pref_jacareísp_2015_consesp.pdf"
       }
     },
     "contextos": [
@@ -1783,7 +1786,8 @@
       "banca": "INSTITUTO CONSULPLAN",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/31686273/b774c692eb66/guarda_civil_metropolitana_feminino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/31686273/e28dc1df06d6/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/31686273/e28dc1df06d6/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/004_guarda_civil_metropolitana_-_feminino_pref_pitangueirassp_2024_instituto_consulplan.pdf"
       }
     },
     "contextos": [
@@ -2203,7 +2207,8 @@
       "banca": "INSTITUTO CONSULPLAN",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/31686345/1a25f0e4fc1d/guarda_civil_metropolitana_masculino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/31686345/9d2ebe6a3861/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/31686345/9d2ebe6a3861/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/005_guarda_civil_metropolitana_-_masculino_pref_pitangueirassp_2024_instituto_consulplan.pdf"
       }
     },
     "contextos": [
@@ -2791,7 +2796,8 @@
       "banca": "Instituto ACCESS",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/29870727/5543df80e4fb/guarda_civil_metropolitano_2_classe.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/29870727/824f897f83d9/gabarito_definitivo.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/29870727/824f897f83d9/gabarito_definitivo.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/006_guarda_civil_metropolitano_-_2_classe_pref_ribeirão_pretosp_2023_instituto_access.pdf"
       }
     },
     "contextos": [
@@ -3463,7 +3469,8 @@
       "banca": "IBADE",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/28851825/c594e490ea72/guarda_civil_metropolitano_3_classe.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/28851825/27cde687c5fe/gabarito_definitivo.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/28851825/27cde687c5fe/gabarito_definitivo.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/007_guarda_civil_metropolitano_-_3ª_classe_smsu_-_pref_são_paulosp_2022_ibade.pdf"
       }
     },
     "contextos": [
@@ -4375,7 +4382,8 @@
       "banca": "IBAM",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/35137081/17e7bea49b69/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/35137081/1f734429f690/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/35137081/1f734429f690/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/008_guarda_civil_municipal_pref_são_vicentesp_2025_ibam.pdf"
       }
     },
     "contextos": [
@@ -4974,7 +4982,8 @@
       "banca": "MSCONCURSOS",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/35292363/b80f1d28846a/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/35292363/62f71a43f256/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/35292363/62f71a43f256/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/009_guarda_civil_municipal_pref_santana_de_parnaíbasp_2025_msconcursos.pdf"
       }
     },
     "contextos": [
@@ -5562,7 +5571,8 @@
       "banca": "INSTITUTO CONSULPLAN",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/35697841/502b2b0dcf64/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/35697841/5dc5408fdee5/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/35697841/5dc5408fdee5/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/010_guarda_civil_municipal_pref_indaiatubasp_2025_instituto_consulplan.pdf"
       }
     },
     "contextos": [
@@ -6161,7 +6171,8 @@
       "banca": "AVANÇA SP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/33110761/f02c0e9806be/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/33110761/dd13de7610cc/gabarito_preliminar.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/33110761/dd13de7610cc/gabarito_preliminar.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/011_guarda_civil_municipal_pref_araçariguamasp_2024_avança_sp.pdf"
       }
     },
     "contextos": [
@@ -6645,7 +6656,8 @@
       "banca": "IPEFAE",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/32517456/ca22700ec86d/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/32517456/efc6b2842f3a/gabarito_preliminar.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/32517456/efc6b2842f3a/gabarito_preliminar.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/012_guarda_civil_municipal_pref_aguaísp_2024_ipefae.pdf"
       }
     },
     "contextos": [
@@ -7023,7 +7035,8 @@
       "banca": "IDECAN",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/32508842/face68950732/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/32508842/706e9ca2103e/gabarito_definitivo.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/32508842/706e9ca2103e/gabarito_definitivo.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/013_guarda_civil_municipal_pref_são_caetano_do_sulsp_2023_idecan.pdf"
       }
     },
     "contextos": [
@@ -7709,7 +7722,8 @@
       "banca": "Avança SP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/31463880/f3eab01a74a0/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/31463880/e8d237249410/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/31463880/e8d237249410/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/014_guarda_civil_municipal_pref_ubatubasp_2023_avança_sp.pdf"
       }
     },
     "contextos": [
@@ -8227,7 +8241,8 @@
       "banca": "IPEFAE",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/30988228/1380b16f902f/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/30988228/94d2f69c20a9/gabaritos.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/30988228/94d2f69c20a9/gabaritos.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/015_guarda_civil_municipal_pref_campos_do_jordãosp_2023_ipefae.pdf"
       }
     },
     "contextos": [
@@ -8675,7 +8690,8 @@
       "banca": "INSTITUTO CONSULPLAN",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/29570885/9092e7ae8aa4/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/29570885/b92fc0dae6a5/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/29570885/b92fc0dae6a5/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/016_guarda_civil_municipal_pref_orlândiasp_2023_instituto_consulplan.pdf"
       }
     },
     "contextos": [
@@ -9232,7 +9248,8 @@
       "banca": "Avança SP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/29043079/62c00c28a105/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/29043079/929c57a3e632/gabarito_oficial.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/29043079/929c57a3e632/gabarito_oficial.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/017_guarda_civil_municipal_pref_amparosp_2022_avança_sp.pdf"
       }
     },
     "contextos": [
@@ -9747,7 +9764,8 @@
       "banca": "Organização Paulista",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/27024013/1bb351759cb6/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/27024013/5704df506c70/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/27024013/5704df506c70/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/018_guarda_civil_municipal_pref_borboremasp_2019_organização_paulista.pdf"
       }
     },
     "contextos": [
@@ -10318,7 +10336,8 @@
       "banca": "INSTITUTO EXCELÊNCIA",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/26579597/177e3271c8e6/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/26579597/a9617a48099d/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/26579597/a9617a48099d/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/019_guarda_civil_municipal_pref_taubatésp_2018_instituto_excelência.pdf"
       }
     },
     "contextos": [
@@ -10928,7 +10947,8 @@
       "banca": "METROCAPITAL",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/26043793/e106204f3fb7/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/26043793/dbf588071935/gabarito_definitivo.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/26043793/dbf588071935/gabarito_definitivo.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/021_guarda_civil_municipal_pref_laranjal_paulistasp_2017_metrocapital.pdf"
       }
     },
     "contextos": [
@@ -11488,7 +11508,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/24221444/31e0552f3da4/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/24221444/48c489f57084/gabaritos.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/24221444/48c489f57084/gabaritos.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/022_guarda_civil_municipal_pref_sertãozinhosp_2016_vunesp.pdf"
       }
     },
     "contextos": [
@@ -12238,7 +12259,8 @@
       "banca": "CAIPIMES",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/22979990/b1225ae2e81f/guarda_civil.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/22979990/481cd1847fc9/gabaritos.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/22979990/481cd1847fc9/gabaritos.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/025_guarda_civil_municipal_pref_botucatusp_2015_caipimes.pdf"
       }
     },
     "contextos": [
@@ -12826,7 +12848,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/21688491/f93554705159/guarda_civil_mun_atibaia_3_classe.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/21688491/7d600e53f38d/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/21688491/7d600e53f38d/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/026_guarda_civil_municipal_pref_atibaiasp_2014_vunesp.pdf"
       }
     },
     "contextos": [
@@ -13484,7 +13507,8 @@
       "banca": "CAIPIMES",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/20184006/8f429fa2ac94/021_022_guarda_civil.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/20184006/8045d4271097/gabaritos_botucatu_provas_02022014.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/20184006/8045d4271097/gabaritos_botucatu_provas_02022014.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/027_guarda_civil_municipal_pref_botucatusp_2014_caipimes.pdf"
       }
     },
     "contextos": [
@@ -14106,7 +14130,8 @@
       "banca": "AVANÇA SP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/32733167/b37ef8e0ed23/guarda_civil_municipal_feminino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/32733167/83b2778e5b55/gabarito_preliminar.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/32733167/83b2778e5b55/gabarito_preliminar.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/028_guarda_civil_municipal_feminino_pref_de_valinhossp_2024_avança_sp.pdf"
       }
     },
     "contextos": [
@@ -14750,7 +14775,8 @@
       "banca": "AVANÇASP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/31572213/c8546cfd5129/guarda_civil_municipal_feminino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/31572213/36ee6ad230f3/gabarito_definitivo.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/31572213/36ee6ad230f3/gabarito_definitivo.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/029_guarda_civil_municipal_feminino_pref_vinhedosp_2023_avançasp.pdf"
       }
     },
     "contextos": [
@@ -15478,7 +15504,8 @@
       "banca": "AVANÇA SP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/32733268/2f054a710a13/guarda_civil_municipal_masculino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/32733268/459265c1c78e/gabarito_preliminar.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/32733268/459265c1c78e/gabarito_preliminar.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/030_guarda_civil_municipal_masculino_pref_de_valinhossp_2024_avança_sp.pdf"
       }
     },
     "contextos": [
@@ -16248,7 +16275,8 @@
       "banca": "AVANÇASP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/31572381/8c3d0d5b4170/guarda_civil_municipal_masculino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/31572381/81f6a39691f0/gabarito_definitivo.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/31572381/81f6a39691f0/gabarito_definitivo.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/031_guarda_civil_municipal_masculino_pref_vinhedosp_2023_avançasp.pdf"
       }
     },
     "contextos": [
@@ -16976,7 +17004,8 @@
       "banca": "FGV",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/30616684/06a3c69606e5/guarda_civil_municipal_2_classe.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/30616684/f379256a5bc8/gabarito_definitivo.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/30616684/f379256a5bc8/gabarito_definitivo.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/032_guarda_civil_municipal_-_2ª_classe_câmara_de_são_josé_dos_campossp_2023_fgv.pdf"
       }
     },
     "contextos": [],
@@ -17832,7 +17861,8 @@
       "banca": "Avança SP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/32278749/fd5545bef29f/guarda_civil_municipal_3_classe_feminino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/32278749/b39909da7268/gabarito_preliminar.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/32278749/b39909da7268/gabarito_preliminar.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/033_guarda_civil_municipal_-_3_classe_feminino_pref_caçapavasp_2024_avança_sp.pdf"
       }
     },
     "contextos": [
@@ -18487,7 +18517,8 @@
       "banca": "Avança SP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/32278849/45d95978ca49/guarda_civil_municipal_3_classe_masculino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/32278849/edb90d76f69d/gabarito_preliminar.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/32278849/edb90d76f69d/gabarito_preliminar.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/034_guarda_civil_municipal_-_3_classe_masculino_pref_caçapavasp_2024_avança_sp.pdf"
       }
     },
     "contextos": [
@@ -19226,7 +19257,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/33494261/13bb076c354e/guarda_civil_municipal_3_classe.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/33494261/8d0454351021/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/33494261/8d0454351021/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/035_guarda_civil_municipal_-_3ª_classe_pref_catanduvasp_2024_vunesp.pdf"
       }
     },
     "contextos": [
@@ -19819,7 +19851,8 @@
       "banca": "ACCESS",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/33896304/543acf9435fc/guarda_civil_municipal_sexo_feminino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/33896304/31c6008e5f74/gabarito_preliminar.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/33896304/31c6008e5f74/gabarito_preliminar.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/037_guarda_civil_municipal_-_sexo_feminino_pref_apiaísp_2024_access.pdf"
       }
     },
     "contextos": [
@@ -20547,7 +20580,8 @@
       "banca": "ACCESS",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/33896425/ffb3c172a17a/guarda_civil_municipal_sexo_masculino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/33896425/ba2e1e1c3031/gabarito_preliminar.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/33896425/ba2e1e1c3031/gabarito_preliminar.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/038_guarda_civil_municipal_-_sexo_masculino_pref_apiaísp_2024_access.pdf"
       }
     },
     "contextos": [
@@ -21163,7 +21197,8 @@
       "banca": "MSCONCURSOS",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/28895820/2fdd0a515eba/guarda_civil_municipal_3_classe.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/28895820/a64161c3a288/gabarito_definitivo.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/28895820/a64161c3a288/gabarito_definitivo.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/039_guarda_civil_municipal_3_classe_pref_lencois_paulistasp_2022_msconcursos.pdf"
       }
     },
     "contextos": [
@@ -21770,7 +21805,8 @@
       "banca": "AVANÇA SP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/33799511/b48348f31725/guarda_civil_municipal_de_3_classe.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/33799511/5f57d9953cf2/gabarito_preliminar.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/33799511/5f57d9953cf2/gabarito_preliminar.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/040_guarda_civil_municipal_de_3ª_classe_pref_taubatésp_2024_avança_sp.pdf"
       }
     },
     "contextos": [
@@ -22322,7 +22358,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/25058240/c73bd82181cf/guarda_municipal_3_classe.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/25058240/215522f1158f/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/25058240/215522f1158f/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/041_guarda_civil_municipal_de_3ª_classe_pref_poásp_-_smsu_2016_vunesp.pdf"
       }
     },
     "contextos": [
@@ -23083,7 +23120,8 @@
       "banca": "CAIPIMES",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/20321509/040980c5805a/001_guarda_feminino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/20321509/24881182b116/gabaritos_gcm_scs.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/20321509/24881182b116/gabaritos_gcm_scs.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/042_guarda_civil_municipal_feminino_pref_são_caetano_do_sulsp_2014_caipimes.pdf"
       }
     },
     "contextos": [
@@ -23811,7 +23849,8 @@
       "banca": "CAIPIMES",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/20321647/1579f5807b8d/002_guarda_masculino.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/20321647/0a5d54199e42/gabaritos_gcm_scs.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/20321647/0a5d54199e42/gabaritos_gcm_scs.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/043_guarda_civil_municipal_masculino_pref_são_caetano_do_sulsp_2014_caipimes.pdf"
       }
     },
     "contextos": [
@@ -24550,7 +24589,8 @@
       "banca": "Avança SP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/32711306/3de130cb04d4/guarda_civil_municipal_3_classe.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/32711306/952a316ed259/gabarito_preliminar.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/32711306/952a316ed259/gabarito_preliminar.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/044_guarda_civil_municipal3ª_classe_pref_itapecerica_da_serrasp_2024_avança_sp.pdf"
       }
     },
     "contextos": [
@@ -25244,7 +25284,8 @@
       "banca": "ADVISE",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/13814206/50cff07ee948/piracicaba_guarda_civil_gp_2010_01_07.pdf",
-        "gabarito": null
+        "gabarito": null,
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/046_guarda-civil_pref_piracicabasp_2009_advise.pdf"
       }
     },
     "contextos": [],
@@ -28060,7 +28101,8 @@
       "banca": "ASSESSORARTE",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/13745158/e143400d4136/089_ed_gab_oficial.pdf",
-        "gabarito": null
+        "gabarito": null,
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/047_guarda-civil_pref_mairinquesp_2007_assessorarte.pdf"
       }
     },
     "contextos": [],
@@ -38604,7 +38646,8 @@
       "banca": "MSCONCURSOS",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/18480291/c335020c649a/prova_guarda_civil_metropolitano_classe_distinta.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/18480291/f156bda3e63c/gabarito_definitivo_guarda_civil_metropolitano.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/18480291/f156bda3e63c/gabarito_definitivo_guarda_civil_metropolitano.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/048_guarda-civil_metropolitano_smsu_-_pref_são_paulosp_2011_msconcursos.pdf"
       }
     },
     "contextos": [
@@ -39612,7 +39655,8 @@
       "banca": "FCC",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/12442511/518c392dfbfc/p1_guar_civ_met_gcm_20040628.pdf",
-        "gabarito": null
+        "gabarito": null,
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/049_guarda-civil_metropolitano_pref_são_paulosp_2004_fcc.pdf"
       }
     },
     "contextos": [
@@ -40348,7 +40392,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/21853508/0e3e9244e9ee/guarda_civil_metropolitano.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/21853508/09037a0faa08/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/21853508/09037a0faa08/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/050_guarda-civil_metropolitano_-_3º_classe_smsu_-_pref_são_paulosp_2013_vunesp.pdf"
       }
     },
     "contextos": [
@@ -41086,7 +41131,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/17966322/e8e325fdd0bb/smsu1301_305_009647.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/17966322/41f0cd23a175/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/17966322/41f0cd23a175/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/101_guarda-civil_municipal_pref_são_paulosp_2013_vunesp.pdf"
       }
     },
     "contextos": [
@@ -41749,7 +41795,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/16715011/04d037c4127e/298_001_guardacivmun.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/16715011/c5e18e4d7ae7/gabaritos.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/16715011/c5e18e4d7ae7/gabaritos.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/102_guarda-civil_municipal_pref_sorocabasp_2012_vunesp.pdf"
       }
     },
     "contextos": [
@@ -42477,7 +42524,8 @@
       "banca": "NOSSO RUMO",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/15974927/096d0902a833/15072011173947i_305.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/15974927/ebcb013b37d2/gabaritos.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/15974927/ebcb013b37d2/gabaritos.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/104_guarda-civil_municipal_pref_mairinquesp_2011_nosso_rumo.pdf"
       }
     },
     "contextos": [
@@ -42995,7 +43043,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/15521295/2c757d3d713d/25_guacivilmunicipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/15521295/8f7167b296ef/gabaritos.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/15521295/8f7167b296ef/gabaritos.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/105_guarda-civil_municipal_pref_diademasp_2011_vunesp.pdf"
       }
     },
     "contextos": [
@@ -43544,7 +43593,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/17290685/8a017745afaa/guarda_civil_municipal.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/17290685/5554e4ec5e50/gabaritos.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/17290685/5554e4ec5e50/gabaritos.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/107_guarda-civil_municipal_pref_são_bernardo_do_camposp_2010_vunesp.pdf"
       }
     },
     "contextos": [
@@ -44283,7 +44333,8 @@
       "banca": "MOURA MELO",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/11142193/d974e6ea08df/medio.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/11142193/a1bec1114e42/gabarito.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/11142193/a1bec1114e42/gabarito.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/108_guarda-civil_municipal_pref_mauásp_2008_moura_melo.pdf"
       }
     },
     "contextos": [
@@ -45002,7 +45053,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/11153963/5817339cd58b/gab.pdf",
-        "gabarito": null
+        "gabarito": null,
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/109_guarda-civil_municipal_pref_sertãozinhosp_2008_vunesp.pdf"
       }
     },
     "contextos": [],
@@ -46698,7 +46750,8 @@
       "banca": "CETRO",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/13231140/29c9a871772e/306.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/13231140/b537a298a7a1/gabaritos_mairinque.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/13231140/b537a298a7a1/gabaritos_mairinque.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/110_guarda-civil_municipal_-_masculino_pref_mairinquesp_2009_cetro.pdf"
       }
     },
     "contextos": [
@@ -47034,7 +47087,8 @@
       "banca": "VUNESP",
       "links": {
         "pdf": "https://www.pciconcursos.com.br/provas/15111347/7837b6d1da55/prova25.pdf",
-        "gabarito": "https://www.pciconcursos.com.br/provas/15111347/73b5a5455db1/gabaritos_sao_jose_dos_campos.pdf"
+        "gabarito": "https://www.pciconcursos.com.br/provas/15111347/73b5a5455db1/gabaritos_sao_jose_dos_campos.pdf",
+        "pdf_cdn": "https://cdn.jsdelivr.net/gh/Vitor-Carmo/gcm-simulator-provas-cdn@main/111_guarda-civil_municipal_2ª_classe_pref_são_josé_dos_campossp_2010_vunesp.pdf"
       }
     },
     "contextos": [],

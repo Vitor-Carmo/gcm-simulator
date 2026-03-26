@@ -22,3 +22,4 @@ gcm_data_copy.json
 # Build final (o pipeline vai gerar, não precisa subir o minificado)
 frontend/src/data/gcm_data.min.json
 logs
+gcm-simulator-provas-cdn
