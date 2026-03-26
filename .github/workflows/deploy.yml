@@ -22,7 +22,7 @@ jobs:
       - name: Minify JSON Data
         run: |
           # Roda o seu script (ajustado para salvar na public)
-          python3 minify.py
+          python3 data-engine/scripts/minify.py
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
