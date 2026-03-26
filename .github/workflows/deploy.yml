@@ -21,10 +21,10 @@ jobs:
 
       - name: Minify JSON Data
         run: |
-          # Garante que a pasta de destino existe
-          mkdir -p frontend/src/data
-          # Script inline para garantir a minificação
-          python3 -c "import json; db=json.load(open('gcm_data.json')); json.dump(db, open('frontend/src/data/gcm_data.min.json', 'w'), separators=(',', ':'), ensure_ascii=False)"
+          # Garante que a pasta public existe
+          mkdir -p frontend/public
+          # Salva o JSON direto na pasta public para o Fetch encontrar
+          python3 -c "import json; db=json.load(open('gcm_data.json')); json.dump(db, open('frontend/public/gcm_data.min.json', 'w'), separators=(',', ':'), ensure_ascii=False)"
 
       - name: Set up Node.js
         uses: actions/setup-node@v4

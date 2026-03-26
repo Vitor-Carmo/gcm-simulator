@@ -15,7 +15,7 @@ export default function App() {
     async function boot() {
       try {
         // importa dados reais
-        const resp = await fetch('/gcm_data.min.json')
+        const resp = await fetch(`${import.meta.env.BASE_URL}gcm_data.min.json`)
         const dados = await resp.json()
         await importarDados(dados)
 
