@@ -3,11 +3,11 @@ import { X, ExternalLink } from 'lucide-react'
 
 export function PdfModal({ metadados, isOpen, onClose, pagina }) {
   if (!metadados) return null
-  let pdfUrl = metadados.links?.pdf_cdn || metadados.prova_pdf
-  console.log(pagina)
-  pdfUrl = (pdfUrl && pagina) 
-    ? `${pdfUrl}#page=${pagina}` 
-    : pdfUrl
+  const rawPdfUrl = metadados.links?.pdf_cdn || metadados.prova_pdf
+
+  const pdfUrl = rawPdfUrl 
+    ? `https://mozilla.github.io/pdf.js/web/viewer.html?file=${encodeURIComponent(rawPdfUrl)}${pagina ? `#page=${pagina}` : ''}`
+    : null
   
   return (
     <AnimatePresence>
