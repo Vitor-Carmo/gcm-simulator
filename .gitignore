@@ -1,0 +1,24 @@
+# Python
+venv/
+__pycache__/
+*.py[cod]
+*.log
+*.txt
+.env
+
+# Node / React
+node_modules/
+dist/
+.DS_Store
+
+# Dados Sensíveis ou Pesados
+provas/
+raw-provas
+raw
+*.zip
+gcm-simulador-v2/
+gcm_data_copy.json
+
+# Build final (o pipeline vai gerar, não precisa subir o minificado)
+frontend/src/data/gcm_data.min.json
+logs
