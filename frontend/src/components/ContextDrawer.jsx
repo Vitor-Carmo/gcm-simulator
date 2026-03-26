@@ -20,12 +20,12 @@ export function ContextDrawer({ contexto, isOpen, onClose }) {
           {/* Drawer */}
           <motion.div
             key="drawer"
-            initial={{ y: '100%' }}
-            animate={{ y: 0 }}
-            exit={{ y: '100%' }}
+            initial={{ y: '100%', x: '-50%' }}
+            animate={{ y: 0, x: '-50%' }}
+            exit={{ y: '100%', x: '-50%' }}
             transition={{ type: 'spring', damping: 30, stiffness: 300 }}
-            className="fixed bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[430px]
-                       bg-[#1e293b] rounded-t-2xl z-50 flex flex-col"
+            className="fixed bottom-0 left-1/2 w-full max-w-[430px] 
+                      bg-[#1e293b] rounded-t-2xl z-50 flex flex-col"
             style={{ maxHeight: '75vh' }}
           >
             {/* Handle */}
@@ -51,7 +51,7 @@ export function ContextDrawer({ contexto, isOpen, onClose }) {
 
             {/* Conteúdo com scroll */}
             <div className="flex-1 overflow-y-auto px-5 py-4 scrollbar-hide">
-              {contexto?.texto?.split('\n\n').map((paragrafo, i) => (
+              {contexto?.conteudo?.split('\n\n').map((paragrafo, i) => (
                 <p key={i} className="text-[14px] text-slate-300 leading-relaxed mb-4 last:mb-0">
                   {paragrafo}
                 </p>
