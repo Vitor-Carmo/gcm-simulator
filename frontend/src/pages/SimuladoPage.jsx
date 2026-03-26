@@ -87,7 +87,7 @@ export function SimuladoPage({ prova, onFinalizar, onVoltar }) {
       <BottomNav currentIndex={currentIndex} total={total} onNavigate={navigate} />
 
       <ContextDrawer contexto={contextoAtual} isOpen={drawerOpen} onClose={() => setDrawerOpen(false)} />
-      <PdfModal metadados={metadados} isOpen={pdfOpen} onClose={() => setPdfOpen(false)} />
+      <PdfModal metadados={metadados} isOpen={pdfOpen} onClose={() => setPdfOpen(false)} pagina={questaoAtual?.pagina} />
     </div>
   )
 }

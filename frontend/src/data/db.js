@@ -2,7 +2,7 @@ import Dexie from 'dexie'
 
 export const db = new Dexie('GCMSimulador')
 
-db.version(2).stores({
+db.version(3).stores({
   provas:    'id, banca, ano, orgao',
   questoes:  '++pk, prova_id, n, cat, [prova_id+cat]',
   contextos: '++pk, prova_id, id_contexto',

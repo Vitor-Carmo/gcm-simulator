@@ -1,10 +1,14 @@
 import { motion, AnimatePresence } from 'framer-motion'
 import { X, ExternalLink } from 'lucide-react'
 
-export function PdfModal({ metadados, isOpen, onClose }) {
+export function PdfModal({ metadados, isOpen, onClose, pagina }) {
   if (!metadados) return null
-  const pdfUrl = metadados.links?.pdf_cdn || metadados.prova_pdf
-
+  let pdfUrl = metadados.links?.pdf_cdn || metadados.prova_pdf
+  console.log(pagina)
+  pdfUrl = (pdfUrl && pagina) 
+    ? `${pdfUrl}#page=${pagina}` 
+    : pdfUrl
+  
   return (
     <AnimatePresence>
       {isOpen && (
