@@ -3,7 +3,7 @@ import os
 
 def minify():
     origem = 'gcm_data.json'
-    destino = 'frontend/src/data/gcm_data.min.json'
+    destino = 'frontend/public/gcm_data.min.json'    
     
     if not os.path.exists('frontend/src/data'):
         os.makedirs('frontend/src/data')
