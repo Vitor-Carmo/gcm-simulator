@@ -5,8 +5,7 @@ def minify():
     origem = 'gcm_data.json'
     destino = 'frontend/public/gcm_data.min.json'    
     
-    if not os.path.exists('frontend/src/data'):
-        os.makedirs('frontend/src/data')
+    os.makedirs(os.path.dirname(destino), exist_ok=True)
 
     with open(origem, 'r', encoding='utf-8') as f:
         data = json.load(f)
