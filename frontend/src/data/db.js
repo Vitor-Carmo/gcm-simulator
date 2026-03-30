@@ -75,41 +75,64 @@ export async function carregarProva(provaId) {
 }
 
 export async function carregarPorFiltro({ prova_id, cat, banca, limite = 60 }) {
-  let query
-  if (prova_id) {
-    query = cat
-      ? db.questoes.where('[prova_id+cat]').equals([prova_id, cat])
-      : db.questoes.where('prova_id').equals(prova_id)
+  let questoes
+
+  if (prova_id && cat) {
+    questoes = await db.questoes.where('[prova_id+cat]').equals([prova_id, cat]).toArray()
+
+  } else if (prova_id) {
+    questoes = await db.questoes.where('prova_id').equals(prova_id).toArray()
+
+  } else if (banca) {
+    const ids = await db.provas.where('banca').equals(banca).primaryKeys()
+    questoes = await db.questoes.where('prova_id').anyOf(ids).toArray()
+    if (cat) questoes = questoes.filter(q => q.cat === cat)
+
   } else if (cat) {
-    query = db.questoes.where('cat').equals(cat)
+    questoes = await db.questoes.where('cat').equals(cat).toArray()
+
   } else {
-    query = db.questoes.toCollection()
+    questoes = await db.questoes.toArray()
   }
 
-  let questoes = await query.limit(limite * 3).toArray()
+  // Reservoir sampling — O(n) mas sem ordenar o array inteiro
+  // Garante seleção verdadeiramente aleatória sem trazer mais do que o necessário
+  const selecionadas = reservoirSample(questoes, limite)
 
-  if (banca && !prova_id) {
-    const provasBanca = await db.provas.where('banca').equals(banca).primaryKeys()
-    questoes = questoes.filter(q => provasBanca.includes(q.prova_id))
-  }
-
-  // embaralha e limita
-  questoes = questoes.sort(() => Math.random() - 0.5).slice(0, limite)
-
-  const provaIds = [...new Set(questoes.map(q => q.prova_id))]
+  // busca metadados só das questões selecionadas
+  const provaIds = [...new Set(selecionadas.map(q => q.prova_id))]
   const provas = await Promise.all(provaIds.map(id => db.provas.get(id)))
   const provasMap = Object.fromEntries(provas.filter(Boolean).map(p => [p.id, p]))
 
-  const ctxIds = [...new Set(questoes.map(q => q.ctx_id).filter(Boolean))]
+  const ctxIds = [...new Set(selecionadas.map(q => q.ctx_id).filter(Boolean))]
   let ctxMap = {}
   if (ctxIds.length) {
     const ctxList = await db.contextos.where('id_contexto').anyOf(ctxIds).toArray()
     ctxMap = Object.fromEntries(ctxList.map(c => [c.id_contexto, c]))
   }
 
-  return { questoes, provasMap, ctxMap }
+  return { questoes: selecionadas, provasMap, ctxMap }
 }
 
+/**
+ * Reservoir sampling (algoritmo R de Vitter)
+ * Seleciona k itens aleatórios de um array em O(n)
+ * sem precisar ordenar o array inteiro — muito mais eficiente que sort() para arrays grandes
+ */
+function reservoirSample(arr, k) {
+  if (arr.length <= k) return arr
+  
+  const reservoir = arr.slice(0, k)
+  
+  for (let i = k; i < arr.length; i++) {
+    const j = Math.floor(Math.random() * (i + 1))
+    if (j < k) {
+      reservoir[j] = arr[i]
+    }
+  }
+  
+  return reservoir
+}
 export async function salvarHistorico(sessao) {
   await db.historico.put({ ...sessao, createdAt: Date.now() })
 }
