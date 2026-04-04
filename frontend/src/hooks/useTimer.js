@@ -1,10 +1,15 @@
 import { useState, useEffect, useRef } from 'react'
 
 export function useTimer(initialSeconds = 2700, onExpire) {
-  const [seconds, setSeconds] = useState(initialSeconds)
+  const [seconds, setSeconds] = useState(initialSeconds || 0)
   const intervalRef = useRef(null)
 
+  // Se initialSeconds for null ou 0, não inicia o timer
+  const isActive = initialSeconds != null && initialSeconds > 0
+
   useEffect(() => {
+    if (!isActive) return
+
     intervalRef.current = setInterval(() => {
       setSeconds(prev => {
         if (prev <= 1) {
@@ -16,7 +21,7 @@ export function useTimer(initialSeconds = 2700, onExpire) {
       })
     }, 1000)
     return () => clearInterval(intervalRef.current)
-  }, [])
+  }, [isActive, onExpire])
 
   const m = Math.floor(seconds / 60)
   const s = seconds % 60
@@ -26,5 +31,5 @@ export function useTimer(initialSeconds = 2700, onExpire) {
     isWarning: seconds < 900,
   }
 
-  return { seconds, formatted }
+  return { seconds, formatted, isActive }
 }
