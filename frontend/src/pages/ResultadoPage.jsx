@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
-import { CheckCircle, XCircle, BarChart2, RotateCcw, Home } from 'lucide-react'
+import { CheckCircle, XCircle, BarChart2, RotateCcw, Home, BookMarked } from 'lucide-react'
 
-export function ResultadoPage({ resultado, onNovoSimulado }) {
+export function ResultadoPage({ resultado, onNovoSimulado, onRevisarErros }) {
   const { questoes, respostas, acertos, provasMap } = resultado
 
   // % baseada em questões RESPONDIDAS, não total do simulado
@@ -23,6 +23,10 @@ export function ResultadoPage({ resultado, onNovoSimulado }) {
     const pctB = b[1].acertos / b[1].total
     return pctA - pctB // piores primeiro
   })
+
+  // Conta questões erradas para o botão revisar
+  const questoesErradas = respostas.filter(r => !r.correta && r.resposta != null).length
+  const podeRevisar = questoesErradas > 0
 
   const emoji = pct >= 70 ? '🎉' : pct >= 50 ? '💪' : '📚'
   const msg = pct >= 70 ? 'Aprovado!' : pct >= 50 ? 'Bom desempenho!' : 'Continue estudando!'
@@ -68,7 +72,7 @@ export function ResultadoPage({ resultado, onNovoSimulado }) {
               <div key={cat} className="bg-[#1e293b] border border-slate-700/30 rounded-xl px-4 py-3">
                 <div className="flex items-center justify-between mb-1.5">
                   <span className="text-[13px] text-slate-300 font-medium truncate flex-1 mr-3">{cat}</span>
-                  <span className="text-[12px] text-slate-400">{stats.acertos}/{stats.total}</span>
+                  <span className="text-[12px] text-slate-400">{stats.acertos}/{stats.total} acertos</span>
                   <span className={`text-[13px] font-semibold ml-2 ${p >= 70 ? 'text-green-400' : p >= 50 ? 'text-amber-400' : 'text-red-400'}`}>
                     {p}%
                   </span>
@@ -118,8 +122,17 @@ export function ResultadoPage({ resultado, onNovoSimulado }) {
         </div>
       </div>
 
-      {/* Botão */}
-      <div className="px-5 pb-8 pt-2">
+      {/* Botões */}
+      <div className="px-5 pb-8 pt-2 flex flex-col gap-3">
+        {podeRevisar && (
+          <button
+            onClick={onRevisarErros}
+            className="w-full bg-emerald-600 hover:bg-emerald-500 text-white rounded-xl py-4 text-[15px] font-semibold flex items-center justify-center gap-2 transition-all"
+          >
+            <BookMarked size={16} />
+            Revisar Erros ({questoesErradas})
+          </button>
+        )}
         <button
           onClick={onNovoSimulado}
           className="w-full bg-blue-600 hover:bg-blue-500 text-white rounded-xl py-4 text-[15px] font-semibold flex items-center justify-center gap-2 transition-all"
