@@ -28,13 +28,12 @@ function makeRespostas(acertosMap) {
 }
 
 function makeResultado(acertosMap) {
-  const total = mockQuestoes.length
+  const totalRespondidas = acertosMap.filter(r => r != null).length
   const acertos = acertosMap.filter((r, i) => r === mockQuestoes[i].res).length
   return {
     questoes: mockQuestoes,
     respostas: makeRespostas(acertosMap),
     acertos,
-    total,
     provasMap: {},
   }
 }
@@ -65,7 +64,7 @@ describe('ResultadoPage - Score e mensagens', () => {
 
   it('mostra texto de questões corretas', () => {
     render(<ResultadoPage resultado={makeResultado(['A', 'B', 'C', 'D', 'A'])} onNovoSimulado={() => {}} />)
-    expect(screen.getByText('5 de 5 questões corretas')).toBeTruthy()
+    expect(screen.getByText('5 de 5 questões respondidas corretas')).toBeTruthy()
   })
 })
 

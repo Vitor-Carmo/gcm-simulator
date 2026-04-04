@@ -2,12 +2,16 @@ import { motion } from 'framer-motion'
 import { CheckCircle, XCircle, BarChart2, RotateCcw, Home } from 'lucide-react'
 
 export function ResultadoPage({ resultado, onNovoSimulado }) {
-  const { questoes, respostas, acertos, total, provasMap } = resultado
-  const pct = Math.round((acertos / total) * 100)
+  const { questoes, respostas, acertos, provasMap } = resultado
 
-  // agrupa erros por matéria
+  // % baseada em questões RESPONDIDAS, não total do simulado
+  const totalRespondidas = respostas.filter(r => r.resposta != null).length
+  const pct = totalRespondidas > 0 ? Math.round((acertos / totalRespondidas) * 100) : 0
+
+  // agrupa erros por matéria (apenas respondidas)
   const errosPorMateria = {}
   respostas.forEach((r, i) => {
+    if (r.resposta == null) return // não conta não respondidas
     const cat = questoes[i]?.cat || 'Geral'
     if (!errosPorMateria[cat]) errosPorMateria[cat] = { acertos: 0, total: 0 }
     errosPorMateria[cat].total++
@@ -36,7 +40,7 @@ export function ResultadoPage({ resultado, onNovoSimulado }) {
           <div className="text-5xl mb-3">{emoji}</div>
           <h1 className="text-3xl font-bold text-slate-100 mb-1">{pct}%</h1>
           <p className="text-slate-400">{msg}</p>
-          <p className="text-[13px] text-slate-500 mt-1">{acertos} de {total} questões corretas</p>
+          <p className="text-[13px] text-slate-500 mt-1">{acertos} de {totalRespondidas} questões respondidas corretas</p>
         </motion.div>
 
         {/* Barra de progresso geral */}
