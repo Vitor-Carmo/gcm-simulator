@@ -1,10 +1,9 @@
 import { FileSearch, ArrowLeft } from 'lucide-react'
 import { useTimer } from '../hooks/useTimer'
 
-export function Header({ metadados, onOpenPdf, onVoltar, respondidas, total }) {
-  const { formatted } = useTimer(45 * 60)
-
-  const dotColor = formatted.isCritical ? 'bg-red-500' : formatted.isWarning ? 'bg-amber-400' : 'bg-blue-500'
+export function Header({ metadados, onOpenPdf, onVoltar, respondidas, total, modo }) {
+  const { formatted } = useTimer(modo === 'treino' ? null : 45 * 60)
+  const isTreino = modo === 'treino'
 
   return (
     <header className="sticky top-0 z-10 bg-[#0f172a] border-b border-slate-700/30 px-4 py-3 flex items-center gap-3">
@@ -26,10 +25,12 @@ export function Header({ metadados, onOpenPdf, onVoltar, respondidas, total }) {
           <FileSearch size={13} />
           PDF
         </button>
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-950/40 border border-blue-800/30">
-          <span className={`w-1.5 h-1.5 rounded-full ${dotColor} animate-pulse`} />
-          <span className="text-[13px] font-semibold text-slate-200 tabular-nums">{formatted.display}</span>
-        </div>
+        {!isTreino && (
+          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-blue-950/40 border border-blue-800/30">
+            <span className={`w-1.5 h-1.5 rounded-full ${formatted.isCritical ? 'bg-red-500' : formatted.isWarning ? 'bg-amber-400' : 'bg-blue-500'} animate-pulse`} />
+            <span className="text-[13px] font-semibold text-slate-200 tabular-nums">{formatted.display}</span>
+          </div>
+        )}
       </div>
     </header>
   )
