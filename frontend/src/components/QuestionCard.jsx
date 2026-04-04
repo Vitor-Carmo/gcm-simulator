@@ -3,7 +3,13 @@ import { BookOpen } from 'lucide-react'
 
 const LETTERS = ['A', 'B', 'C', 'D', 'E']
 
-function altClass(letra, selected, isConfirmed, correta) {
+function altClass(letra, selected, isConfirmed, correta, mostrarRespostaCerta) {
+  if (mostrarRespostaCerta) {
+    // No modo revisão, a resposta correta já está visível
+    if (letra === correta) return 'border-green-500/80 bg-green-950/30 text-slate-100'
+    if (letra === selected) return 'border-red-500/60 bg-red-950/20 text-slate-300'
+    return 'border-slate-700/20 bg-[#1e293b]/60 text-slate-500 opacity-60'
+  }
   if (!isConfirmed) {
     return letra === selected
       ? 'border-blue-500/80 bg-blue-950/30 text-slate-100'
@@ -14,7 +20,12 @@ function altClass(letra, selected, isConfirmed, correta) {
   return 'border-slate-700/20 bg-[#1e293b]/60 text-slate-500 opacity-60'
 }
 
-function letterClass(letra, selected, isConfirmed, correta) {
+function letterClass(letra, selected, isConfirmed, correta, mostrarRespostaCerta) {
+  if (mostrarRespostaCerta) {
+    if (letra === correta) return 'bg-green-900/40 border-green-500/50 text-green-300'
+    if (letra === selected) return 'bg-red-900/30 border-red-500/40 text-red-300'
+    return 'bg-slate-700/20 border-slate-600/20 text-slate-600'
+  }
   if (!isConfirmed) {
     return letra === selected
       ? 'bg-blue-900/50 border-blue-500/60 text-blue-300'
@@ -25,7 +36,7 @@ function letterClass(letra, selected, isConfirmed, correta) {
   return 'bg-slate-700/20 border-slate-600/20 text-slate-600'
 }
 
-export function QuestionCard({ questao, contexto, selectedAnswer, isConfirmed, onSelect, onConfirm, onOpenContext, questionIndex, total }) {
+export function QuestionCard({ questao, contexto, selectedAnswer, isConfirmed, onSelect, onConfirm, onOpenContext, questionIndex, total, mostrarRespostaCerta }) {
   // adapta novo formato: txt, opts, res, cat
   const enunciado = questao.txt || questao.enunciado || ''
   const alternativas = questao.opts || questao.alternativas || {}
@@ -82,12 +93,12 @@ export function QuestionCard({ questao, contexto, selectedAnswer, isConfirmed, o
             return (
               <motion.button
                 key={letra}
-                onClick={() => onSelect(letra)}
-                disabled={isConfirmed}
-                whileTap={!isConfirmed ? { scale: 0.98 } : {}}
-                className={`w-full flex items-start gap-3 px-4 py-3.5 rounded-xl border text-left transition-all duration-150 ${altClass(letra, selectedAnswer, isConfirmed, correta)}`}
+                onClick={() => !mostrarRespostaCerta && onSelect(letra)}
+                disabled={isConfirmed || mostrarRespostaCerta}
+                whileTap={!mostrarRespostaCerta && !isConfirmed ? { scale: 0.98 } : {}}
+                className={`w-full flex items-start gap-3 px-4 py-3.5 rounded-xl border text-left transition-all duration-150 ${altClass(letra, selectedAnswer, isConfirmed, correta, mostrarRespostaCerta)}`}
               >
-                <span className={`w-7 h-7 rounded-lg border flex items-center justify-center text-[11px] font-semibold flex-shrink-0 mt-0.5 transition-all ${letterClass(letra, selectedAnswer, isConfirmed, correta)}`}>
+                <span className={`w-7 h-7 rounded-lg border flex items-center justify-center text-[11px] font-semibold flex-shrink-0 mt-0.5 transition-all ${letterClass(letra, selectedAnswer, isConfirmed, correta, mostrarRespostaCerta)}`}>
                   {letra}
                 </span>
                 <span className="text-[14px] leading-relaxed flex-1">{texto}</span>
@@ -96,8 +107,8 @@ export function QuestionCard({ questao, contexto, selectedAnswer, isConfirmed, o
           })}
         </div>
 
-        {/* Confirmar */}
-        {!isConfirmed && (
+        {/* Confirmar — não aparece no modo revisão */}
+        {!mostrarRespostaCerta && !isConfirmed && (
           <motion.button
             onClick={onConfirm}
             disabled={!selectedAnswer}
@@ -111,20 +122,33 @@ export function QuestionCard({ questao, contexto, selectedAnswer, isConfirmed, o
 
         {/* Feedback */}
         <AnimatePresence>
-          {isConfirmed && (
+          {(isConfirmed || mostrarRespostaCerta) && (
             <motion.div
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.2 }}
               className={`rounded-xl px-4 py-3.5 flex items-start gap-3 border
-                ${selectedAnswer === correta ? 'bg-green-950/30 border-green-800/30' : 'bg-red-950/20 border-red-800/25'}`}
+                ${mostrarRespostaCerta && selectedAnswer === correta ? 'bg-green-950/30 border-green-800/30' :
+                  mostrarRespostaCerta && selectedAnswer ? 'bg-red-950/20 border-red-800/25' :
+                  selectedAnswer === correta ? 'bg-green-950/30 border-green-800/30' : 'bg-red-950/20 border-red-800/25'}`}
             >
-              <span className="text-lg leading-none mt-0.5">{selectedAnswer === correta ? '✓' : '✗'}</span>
+              <span className="text-lg leading-none mt-0.5">{mostrarRespostaCerta && selectedAnswer ? (selectedAnswer === correta ? '✓' : '✗') : (selectedAnswer === correta ? '✓' : '✗')}</span>
               <div>
-                <p className={`text-[13px] font-semibold mb-0.5 ${selectedAnswer === correta ? 'text-green-300' : 'text-red-300'}`}>
-                  {selectedAnswer === correta ? 'Resposta correta!' : 'Resposta incorreta.'}
-                </p>
-                {selectedAnswer !== correta && (
+                {mostrarRespostaCerta ? (
+                  <p className={`text-[13px] font-semibold mb-0.5 ${selectedAnswer === correta ? 'text-green-300' : 'text-red-300'}`}>
+                    {selectedAnswer === correta ? 'Você acertou!' : 'Você errou.'}
+                  </p>
+                ) : (
+                  <p className={`text-[13px] font-semibold mb-0.5 ${selectedAnswer === correta ? 'text-green-300' : 'text-red-300'}`}>
+                    {selectedAnswer === correta ? 'Resposta correta!' : 'Resposta incorreta.'}
+                  </p>
+                )}
+                {mostrarRespostaCerta && selectedAnswer !== correta && (
+                  <p className="text-[12px] text-slate-400">
+                    A alternativa correta é <span className="text-green-400 font-semibold">{correta}</span>.
+                  </p>
+                )}
+                {!mostrarRespostaCerta && selectedAnswer !== correta && (
                   <p className="text-[12px] text-slate-400">
                     A alternativa correta é <span className="text-green-400 font-semibold">{correta}</span>.
                   </p>
