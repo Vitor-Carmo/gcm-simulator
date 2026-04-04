@@ -4,6 +4,12 @@ import { MenuPage } from './pages/MenuPage'
 import { SimuladoPage } from './pages/SimuladoPage'
 import { ResultadoPage } from './pages/ResultadoPage'
 
+async function sha256(text) {
+  const data = new TextEncoder().encode(text)
+  const hash = await crypto.subtle.digest('SHA-256', data)
+  return Array.from(new Uint8Array(hash)).map(b => b.toString(16).padStart(2, '0')).join('')
+}
+
 export default function App() {
   const [tela, setTela] = useState('loading') // loading | menu | simulado | resultado
   const [filtros, setFiltros] = useState({ bancas: [], anos: [], materias: [], provas: [] })
@@ -16,8 +22,9 @@ export default function App() {
       try {
         // importa dados reais
         const resp = await fetch(`${import.meta.env.BASE_URL}gcm_data.min.json`)
-        const fingerprint = resp.headers.get('Content-Length') || 'v1'
         const dados = await resp.json()
+        const text = JSON.stringify(dados)
+        const fingerprint = await sha256(text)
         await importarDados(dados, fingerprint)
 
         // carrega filtros disponíveis
