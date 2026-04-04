@@ -8,7 +8,7 @@ import json
 
 DATA_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ORIGEM = os.path.join(os.path.dirname(DATA_DIR), 'gcm_data.json')
-DESTINO = os.path.join(DATA_DIR, '../../frontend/public/', 'gcm_data.min.json')
+DESTINO = os.path.join(DATA_DIR, '../frontend/public/', 'gcm_data.min.json')
 
 
 def minificar():
