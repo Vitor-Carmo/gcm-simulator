@@ -55,7 +55,7 @@ export function SimuladoPage({ prova, onFinalizar, onVoltar }) {
   }
 
   const respondidas = Object.keys(confirmed).length
-  const podeFinalizarCedo = respondidas >= Math.floor(total * 0.5)
+  const podeFinalizarCedo = respondidas >= Math.floor(total * 0.5) || currentIndex === total - 1
   
   if (!questaoAtual) return null
 
