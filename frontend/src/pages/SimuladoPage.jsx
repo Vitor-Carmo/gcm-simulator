@@ -21,6 +21,9 @@ export function SimuladoPage({ prova, onFinalizar, onVoltar }) {
   const isConfirmed = !!confirmed[currentIndex]
   const total = questoes.length
 
+  // Modo revisão mostra a resposta correta desde o início
+  const mostrarRespostaCerta = config?.mostrarRespostaCerta
+
   const selectAnswer = useCallback((letra) => {
     if (confirmed[currentIndex]) return
     setAnswers(prev => ({ ...prev, [currentIndex]: letra }))
@@ -49,14 +52,14 @@ export function SimuladoPage({ prova, onFinalizar, onVoltar }) {
       questao: q,
       resposta: answers[i] ?? null,
       correta: answers[i] === q.res,
-      confirmada: !!confirmed[i],
+      confirmada: !!confirmed[i] || mostrarRespostaCerta,
     }))
     onFinalizar(respostas)
   }
 
   const respondidas = Object.keys(confirmed).length
   const podeFinalizarCedo = respondidas >= Math.floor(total * 0.5) || currentIndex === total - 1
-  
+
   if (!questaoAtual) return null
 
   return (
@@ -67,6 +70,7 @@ export function SimuladoPage({ prova, onFinalizar, onVoltar }) {
         onVoltar={onVoltar}
         respondidas={respondidas}
         total={total}
+        modo={config?.modo}
       />
 
       <main className="flex-1 overflow-y-auto px-4 pt-4 pb-36 scrollbar-hide">
@@ -74,12 +78,13 @@ export function SimuladoPage({ prova, onFinalizar, onVoltar }) {
           questao={questaoAtual}
           contexto={contextoAtual}
           selectedAnswer={selectedAnswer}
-          isConfirmed={isConfirmed}
+          isConfirmed={isConfirmed || mostrarRespostaCerta}
           onSelect={selectAnswer}
           onConfirm={confirmAnswer}
           onOpenContext={() => setDrawerOpen(true)}
           questionIndex={currentIndex}
           total={total}
+          mostrarRespostaCerta={mostrarRespostaCerta}
         />
 
         {/* Botão finalizar */}
