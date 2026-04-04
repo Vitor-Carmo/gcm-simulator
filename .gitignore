@@ -18,7 +18,8 @@ raw
 *.zip
 gcm-simulador-v2/
 gcm_data_copy.json
-
+gcm_data copy.json
+gcm_data_normalizado.json
 # Build final (o pipeline vai gerar, não precisa subir o minificado)
 logs
 gcm-simulator-provas-cdn
