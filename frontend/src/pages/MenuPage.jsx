@@ -8,7 +8,9 @@ import {
   Shield,
   Shuffle,
   BarChart2,
+  BookMarked,
 } from "lucide-react";
+import { HistoricoChart } from "../components/HistoricoChart";
 
 const MODOS = [
   {
@@ -41,13 +43,23 @@ export function MenuPage({ filtros, historico, onIniciar }) {
   const [modo, setModo] = useState(null);
   const [config, setConfig] = useState({});
   const [qtd, setQtd] = useState(30);
+  const [tipoSimulado, setTipoSimulado] = useState("simulado"); // 'simulado' | 'treino'
+  const [filtroAno, setFiltroAno] = useState("");
+  const [filtroCat, setFiltroCat] = useState("");
 
   function handleIniciar() {
     if (modo === "prova" && !config.prova_id) return;
     if (modo === "materia" && !config.cat) return;
     if (modo === "banca" && !config.banca) return;
 
-    onIniciar({ tipo: modo, ...config, qtd });
+    onIniciar({
+      tipo: modo,
+      ...config,
+      qtd,
+      modo: tipoSimulado,
+      ano: filtroAno || undefined,
+      cat: config.cat || filtroCat || undefined,
+    });
   }
 
   return (
@@ -171,30 +183,79 @@ export function MenuPage({ filtros, historico, onIniciar }) {
                 )}
 
                 {modo !== "prova" && (
-                  <div className="flex items-center gap-3 bg-[#1e293b] border border-slate-700/40 rounded-xl px-4 py-3.5">
-                    <span className="text-[13px] text-slate-400 flex-1">
-                      Nº de questões
-                    </span>
-                    <div className="flex items-center gap-2">
-                      {[15, 30, 50].map((n) => (
-                        <button
-                          key={n}
-                          onClick={() => setQtd(n)}
-                          className={`w-10 h-8 rounded-lg text-[13px] font-medium transition-all
-                            ${qtd === n ? "bg-blue-600 text-white" : "bg-slate-700/50 text-slate-400"}`}
-                        >
-                          {n}
-                        </button>
-                      ))}
+                  <>
+                    <div className="flex items-center gap-3 bg-[#1e293b] border border-slate-700/40 rounded-xl px-4 py-3.5">
+                      <span className="text-[13px] text-slate-400 flex-1">
+                        Nº de questões
+                      </span>
+                      <div className="flex items-center gap-2">
+                        {[15, 30, 50].map((n) => (
+                          <button
+                            key={n}
+                            onClick={() => setQtd(n)}
+                            className={`w-10 h-8 rounded-lg text-[13px] font-medium transition-all
+                              ${qtd === n ? "bg-blue-600 text-white" : "bg-slate-700/50 text-slate-400"}`}
+                          >
+                            {n}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
+
+                    {/* Filtros por ano e categoria */}
+                    <div className="grid grid-cols-2 gap-2 overflow-hidden">
+                      <select
+                        value={filtroAno}
+                        onChange={(e) => setFiltroAno(e.target.value)}
+                        className="w-full bg-[#1e293b] border border-slate-700/40 rounded-xl px-3 py-3 text-[13px] text-slate-200 focus:outline-none focus:border-blue-500/60"
+                      >
+                        <option value="">Todos os anos</option>
+                        {filtros.anos.map((a) => (
+                          <option key={a} value={a}>{a}</option>
+                        ))}
+                      </select>
+                      <select
+                        value={filtroCat}
+                        onChange={(e) => setFiltroCat(e.target.value)}
+                        className="w-full bg-[#1e293b] border border-slate-700/40 rounded-xl px-3 py-3 text-[13px] text-slate-200 focus:outline-none focus:border-blue-500/60"
+                      >
+                        <option value="">Todas matérias</option>
+                        {filtros.materias.map((m) => (
+                          <option key={m} value={m}>{m}</option>
+                        ))}
+                      </select>
+                    </div>
+                  </>
                 )}
+
+                {/* Seletor Simulado / Treino */}
+                <div className="flex items-center gap-3 bg-[#1e293b] border border-slate-700/40 rounded-xl px-4 py-3.5">
+                  <span className="text-[13px] text-slate-400 flex-1">Modo</span>
+                  <div className="flex items-center gap-2">
+                    <button
+                      onClick={() => setTipoSimulado("simulado")}
+                      className={`flex items-center gap-1.5 px-3 h-8 rounded-lg text-[13px] font-medium transition-all
+                        ${tipoSimulado === "simulado" ? "bg-blue-600 text-white" : "bg-slate-700/50 text-slate-400"}`}
+                    >
+                      <Clock size={12} />
+                      Simulado
+                    </button>
+                    <button
+                      onClick={() => setTipoSimulado("treino")}
+                      className={`flex items-center gap-1.5 px-3 h-8 rounded-lg text-[13px] font-medium transition-all
+                        ${tipoSimulado === "treino" ? "bg-emerald-600 text-white" : "bg-slate-700/50 text-slate-400"}`}
+                    >
+                      <BookMarked size={12} />
+                      Treino
+                    </button>
+                  </div>
+                </div>
 
                 <button
                   onClick={handleIniciar}
                   className="w-full bg-blue-600 hover:bg-blue-500 text-white rounded-xl py-4 text-[15px] font-semibold flex items-center justify-center gap-2 transition-all"
                 >
-                  Iniciar Simulado
+                  Iniciar {tipoSimulado === "treino" ? "Treino" : "Simulado"}
                   <ChevronRight size={18} />
                 </button>
               </div>
@@ -205,12 +266,21 @@ export function MenuPage({ filtros, historico, onIniciar }) {
         {/* Histórico */}
         {historico.length > 0 && (
           <div>
+            {/* Gráfico de evolução */}
+            <HistoricoChart historico={historico} />
+
             <p className="text-[11px] text-slate-500 uppercase tracking-widest mb-3">
               Histórico recente
             </p>
             <div className="flex flex-col gap-2">
               {historico.slice(0, 5).map((h) => {
                 const pct = Math.round((h.acertos / h.total) * 100);
+                // Monta label descritivo baseado no tipo de simulado
+                const labelPeca = h.config?.cat
+                  || h.config?.banca
+                  || (h.prova_id && h.prova_id !== 'misto' ? h.prova_id?.split('_').slice(1, 4).join(' ') : null)
+                  || 'Simulado'
+                const labelAno = h.config?.ano ? ` · ${h.config.ano}` : ''
                 return (
                   <div
                     key={h.id}
@@ -222,10 +292,7 @@ export function MenuPage({ filtros, historico, onIniciar }) {
                     />
                     <div className="flex-1 min-w-0">
                       <p className="text-[13px] text-slate-200 truncate">
-                        {h.config?.cat ||
-                          h.config?.banca ||
-                          h.prova_id?.split("_").slice(1, 4).join(" ") ||
-                          "Simulado"}
+                        {labelPeca}{labelAno}
                       </p>
                       <p className="text-[11px] text-slate-500">
                         {h.acertos}/{h.total} acertos ·{" "}
