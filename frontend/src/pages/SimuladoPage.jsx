@@ -1,4 +1,4 @@
-import { useState, useCallback } from 'react'
+import { useState, useCallback, useEffect } from 'react'
 import { Header } from '../components/Header'
 import { QuestionCard } from '../components/QuestionCard'
 import { BottomNav } from '../components/BottomNav'
@@ -34,6 +34,15 @@ export function SimuladoPage({ prova, onFinalizar, onVoltar }) {
   const navigate = useCallback((dir) => {
     setCurrentIndex(prev => Math.max(0, Math.min(total - 1, prev + dir)))
   }, [total])
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'ArrowRight') navigate(1)
+      if (e.key === 'ArrowLeft') navigate(-1)
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [navigate])
 
   function handleFinalizar() {
     const respostas = questoes.map((q, i) => ({
