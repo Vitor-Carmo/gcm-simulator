@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { db, importarDados, valoresUnicos, materiasUnicas, carregarProva, carregarPorFiltro, salvarHistorico, buscarHistorico } from './data/db'
+import { db, importarDados, valoresUnicos, materiasUnicas, carregarProva, carregarPorFiltro, salvarHistorico, buscarHistorico, buscarContextosPorIds } from './data/db'
 import { MenuPage } from './pages/MenuPage'
 import { SimuladoPage } from './pages/SimuladoPage'
 import { ResultadoPage } from './pages/ResultadoPage'
@@ -49,7 +49,7 @@ export default function App() {
   }, [])
 
   async function iniciarSimulado(config) {
-    // config: { tipo: 'prova'|'materia'|'banca'|'misto', prova_id, cat, banca, qtd }
+    // config: { tipo, prova_id, cat, banca, qtd, modo, ano }
     let dados
     if (config.tipo === 'prova') {
       const p = await carregarProva(config.prova_id)
@@ -59,8 +59,9 @@ export default function App() {
     } else {
       dados = await carregarPorFiltro({
         prova_id: config.prova_id,
-        cat: config.cat,
+        cat: config.cat || config.filtroCat,
         banca: config.banca,
+        ano: config.ano,
         limite: config.qtd || 30,
       })
     }
@@ -83,6 +84,39 @@ export default function App() {
     setHistorico(hist)
     setResultado({ ...sessao, questoes: provaAtiva.questoes, provasMap: provaAtiva.provasMap })
     setTela('resultado')
+  }
+
+  async function iniciarRevisaoErros(resultadoAtual) {
+    // Filtra só questões erradas
+    const questoesErro = resultadoAtual.respostas
+      .map((r, i) => ({ resposta: r, questao: resultadoAtual.questoes[i] }))
+      .filter(({ resposta }) => !resposta.correta)
+      .map(({ questao }) => questao)
+
+    if (questoesErro.length === 0) return
+
+    // Agrupa por prova_id para montar o provasMap
+    const provaIds = [...new Set(questoesErro.map(q => q.prova_id).filter(Boolean))]
+    const provasMap = {}
+    provaIds.forEach(id => {
+      if (resultadoAtual.provasMap?.[id]) {
+        provasMap[id] = resultadoAtual.provasMap[id]
+      }
+    })
+
+    // Busca contextos das questões de erro
+    const ctxIds = [...new Set(questoesErro.map(q => q.ctx_id).filter(Boolean))]
+    const ctxMap = await buscarContextosPorIds(ctxIds)
+
+    const configRevisao = {
+      ...resultadoAtual.config,
+      tipo: 'revisao',
+      modo: 'treino',
+      mostrarRespostaCerta: true,
+    }
+
+    setProvaAtiva({ questoes: questoesErro, provasMap, ctxMap, config: configRevisao })
+    setTela('simulado')
   }
 
   if (tela === 'loading') {
@@ -119,6 +153,7 @@ export default function App() {
       <ResultadoPage
         resultado={resultado}
         onNovoSimulado={() => setTela('menu')}
+        onRevisarErros={() => iniciarRevisaoErros(resultado)}
       />
     )
   }
