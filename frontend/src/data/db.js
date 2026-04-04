@@ -74,7 +74,7 @@ export async function carregarProva(provaId) {
   return { metadados, questoes, contextos }
 }
 
-export async function carregarPorFiltro({ prova_id, cat, banca, limite = 60 }) {
+export async function carregarPorFiltro({ prova_id, cat, banca, ano, limite = 60 }) {
   let questoes
 
   if (prova_id && cat) {
@@ -83,8 +83,13 @@ export async function carregarPorFiltro({ prova_id, cat, banca, limite = 60 }) {
   } else if (prova_id) {
     questoes = await db.questoes.where('prova_id').equals(prova_id).toArray()
 
-  } else if (banca) {
-    const ids = await db.provas.where('banca').equals(banca).primaryKeys()
+  } else if (banca || ano) {
+    const ids = await db.provas.toArray()
+      .then(ps => ps.filter(p => {
+        if (banca && p.banca !== banca) return false
+        if (ano && p.ano !== ano) return false
+        return true
+      }).map(p => p.id))
     questoes = await db.questoes.where('prova_id').anyOf(ids).toArray()
     if (cat) questoes = questoes.filter(q => q.cat === cat)
 
@@ -139,4 +144,10 @@ export async function salvarHistorico(sessao) {
 
 export async function buscarHistorico(limite = 20) {
   return db.historico.orderBy('createdAt').reverse().limit(limite).toArray()
+}
+
+export async function buscarContextosPorIds(ctxIds) {
+  if (!ctxIds || ctxIds.length === 0) return {}
+  const ctxList = await db.contextos.where('id_contexto').anyOf(ctxIds).toArray()
+  return Object.fromEntries(ctxList.map(c => [c.id_contexto, c]))
 }
