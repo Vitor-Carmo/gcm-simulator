@@ -128,3 +128,34 @@ describe('ResultadoPage - Navegação', () => {
     expect(onNovoSimulado).toHaveBeenCalled()
   })
 })
+
+describe('ResultadoPage - Revisar Erros', () => {
+  afterEach(cleanup)
+
+  it('mostra botão Revisar Erros quando há erros', () => {
+    const onRevisarErros = vi.fn()
+    // 2 erradas (B e A quando deveria ser A e B)
+    render(<ResultadoPage resultado={makeResultado(['B', 'A', 'C', 'D', 'A'])} onNovoSimulado={() => {}} onRevisarErros={onRevisarErros} />)
+    expect(screen.getByText(/Revisar Erros/i)).toBeTruthy()
+  })
+
+  it('não mostra botão Revisar Erros quando não há erros', () => {
+    const onRevisarErros = vi.fn()
+    render(<ResultadoPage resultado={makeResultado(['A', 'B', 'C', 'D', 'A'])} onNovoSimulado={() => {}} onRevisarErros={onRevisarErros} />)
+    expect(screen.queryByText(/Revisar Erros/i)).toBeNull()
+  })
+
+  it('chama onRevisarErros ao clicar no botão', () => {
+    const onRevisarErros = vi.fn()
+    render(<ResultadoPage resultado={makeResultado(['B', 'A', 'C', 'D', 'A'])} onNovoSimulado={() => {}} onRevisarErros={onRevisarErros} />)
+    fireEvent.click(screen.getByText(/Revisar Erros/i))
+    expect(onRevisarErros).toHaveBeenCalled()
+  })
+
+  it('mostra quantidade de erros no botão', () => {
+    const onRevisarErros = vi.fn()
+    render(<ResultadoPage resultado={makeResultado(['B', 'A', 'C', 'D', 'A'])} onNovoSimulado={() => {}} onRevisarErros={onRevisarErros} />)
+    // 2 erradas: questão 1 (B vs A) e questão 2 (A vs B)
+    expect(screen.getByText(/Revisar Erros \(2\)/i)).toBeTruthy()
+  })
+})

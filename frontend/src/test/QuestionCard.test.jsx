@@ -301,3 +301,85 @@ describe('QuestionCard - Contexto', () => {
     expect(onOpenContext).toHaveBeenCalled()
   })
 })
+
+describe('QuestionCard - Modo Revisão (mostrarRespostaCerta)', () => {
+  afterEach(cleanup)
+
+  it('não mostra botão de confirmar no modo revisão', () => {
+    render(
+      <QuestionCard
+        questao={mockQuestao}
+        contexto={null}
+        selectedAnswer={null}
+        isConfirmed={false}
+        onSelect={() => {}}
+        onConfirm={() => {}}
+        onOpenContext={() => {}}
+        questionIndex={0}
+        total={5}
+        mostrarRespostaCerta={true}
+      />
+    )
+
+    expect(screen.queryByRole('button', { name: /Confirmar/i })).toBeNull()
+  })
+
+  it('mostra feedback de acerto no modo revisão', () => {
+    render(
+      <QuestionCard
+        questao={mockQuestao}
+        contexto={null}
+        selectedAnswer="C"
+        isConfirmed={false}
+        onSelect={() => {}}
+        onConfirm={() => {}}
+        onOpenContext={() => {}}
+        questionIndex={0}
+        total={5}
+        mostrarRespostaCerta={true}
+      />
+    )
+
+    expect(screen.getByText('Você acertou!')).toBeTruthy()
+  })
+
+  it('mostra feedback de erro no modo revisão com resposta correta visível', () => {
+    render(
+      <QuestionCard
+        questao={mockQuestao}
+        contexto={null}
+        selectedAnswer="A"
+        isConfirmed={false}
+        onSelect={() => {}}
+        onConfirm={() => {}}
+        onOpenContext={() => {}}
+        questionIndex={0}
+        total={5}
+        mostrarRespostaCerta={true}
+      />
+    )
+
+    expect(screen.getByText('Você errou.')).toBeTruthy()
+  })
+
+  it('não chama onSelect ao clicar alternativa no modo revisão', () => {
+    const onSelect = vi.fn()
+    render(
+      <QuestionCard
+        questao={mockQuestao}
+        contexto={null}
+        selectedAnswer={null}
+        isConfirmed={false}
+        onSelect={onSelect}
+        onConfirm={() => {}}
+        onOpenContext={() => {}}
+        questionIndex={0}
+        total={5}
+        mostrarRespostaCerta={true}
+      />
+    )
+
+    fireEvent.click(screen.getByText('São Paulo'))
+    expect(onSelect).not.toHaveBeenCalled()
+  })
+})
