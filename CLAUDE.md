@@ -96,9 +96,58 @@ MISTRAL_API_KEY=<token>  # em data-engine/.env
 
 ---
 
-## Favores de Contexto
+## Funcionalidades do Simulado
 
+### Modos de simulado
+- **Por Prova**: seleciona uma prova específica completa
+- **Por Matéria**: filtra por categoria (Direito Penal, Legislação, Português, etc.)
+- **Por Banca**: filtra por banca examinadora (FGV, VUNESP, IBFC, etc.)
+- **Aleatório**: reservoir sampling de todo o banco
+
+### Modo Treino vs Simulado
+- **Treino**: sem timer, pode revisar respostas imediatamente
+- **Simulado**: timer de 45 min, navegação livre entre questões, termina ao confirmar ou no timeout
+
+### Navegação e finalização
+- Seta do teclado e botões Anterior/Próxima
+- Pode avançar para última questão e terminar antecipadamente ("Finalizar" aparece na última)
+- Percentual de acerto calculado sobre **questões respondidas** (não total)
+
+### Revisão de erros
+- Botão "Revisar Erros (N)" após o resultado
+- Mostra só as questões erradas com feedback de acerto/erro
+
+### Histórico e gráfico
+- Salva resultados no IndexedDB (`historico`)
+- Gráfico SVG de evolução (últimos 10 resultados, linha azul + dots coloridos)
+- Label do histórico inclui ano quando filtrado por ano
+
+---
+
+## Testes (Vitest + Testing Library)
+
+Suite completa: **80 testes**, 7 arquivos, todos passando.
+
+### Arquivos de teste (`frontend/src/test/`)
+
+| Arquivo | Qtd | O que testa |
+|---|---|---|
+| `QuestionCard.test.jsx` | 17 | Renderização, seleção, confirmação, contexto, modo revisão |
+| `ResultadoPage.test.jsx` | 15 | Score, mensagens (Aprovado/Bom/Continue), gabarito, revisar erros |
+| `MenuPage.test.jsx` | 26 | Seleção de modos, filtros ano/matéria, iniciar simulado/treino |
+| `SimuladoPage.test.jsx` | 8 | Navegação por setas/teclado e botões Anterior/Próxima |
+| `HistoricoChart.test.jsx` | 4 | Renderização SVG condicional (mínimo 2 itens) |
+| `reservoirSample.test.js` | 7 | Algoritmo R de Vitter — aleatoriedade e limites |
+| `db.test.js` | 3 | `buscarContextosPorIds` — comportamento com ctxIds vazio/null/inexistente |
+
+### Bugs capturados por testes
+- Filtro secundário de matéria sobrescrevia matéria principal no modo "Por Matéria"
+- Label do histórico não exibia ano quando filtrado por ano
+- Percentual calculado sobre total de questões em vez de respondidas
+
+### Dicas de escrita de testes
 - Testes usam `@testing-library/jest-dom` (importado em `setup.js`)
 - Textos quebrados por `<br>` em JSX causam problemas com `getByText` — use `getAllByText` ou queries por `className`
 - AnimatePresence do Framer Motion pode deixar elementos no DOM após transição — use `waitFor` ou `cleanup()`
 - `getByRole('button', { name: /texto/i })` é mais confiável que matchers de texto para botões
+- Para testar IndexedDB/Dexie, use `vi.spyOn` no módulo já importado (não `vi.mock` com factory async)
